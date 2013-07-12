@@ -30,28 +30,37 @@ Toggle
 =======
 To change the value of the switch programatically, use the toggle method.
 
-```<button class='btn'>Toggle</button>
+```html
+<button class='btn'>Toggle</button>
+```
+
+```javascript
 $('.btn').click(function() {
     widget.toggle()
-});```
+});
+```
 
 Get Value
 ==========
 You can of course get the current value of the switch by accessing the value attribute of the switch model ( true | false ).
 
-```$('.btn').click(function() {
+```javascript
+$('.btn').click(function() {
     var value = widget.model.get('value');
                         
     alert(value);
-});```
+});
+```
 
 Detect Change
 ===============
 
 If you need to subscribe to 'change' events for the switch, add an event listener to the widget model.
 
-```widget.model.on('change', function() { 
+```javascript
+widget.model.on('change', function() { 
     alert("changed to: " + this.get('value')); 
-});```
+});
+```
 
 For full documentation visit http://zacharybabtkis.com/demos/toggleSwitch/.
