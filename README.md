@@ -1,6 +1,6 @@
 Backbone-ToggleSwitch
-
 =====================
+
 Backbone ToggleSwitch is the simple MVC widget you've been looking for...
 
 You just need a toggle widget right? Sure, it wouldn't take too teribly long to implement this your self, but with Backbone ToggleWidget you can save your valuable time and in seconds have a beautiful Backbone based View and Model to support your sweet new web app!
@@ -19,21 +19,24 @@ Requirements
 
 Basic Use
 --------
+
 ```var widget = new ToggleSwitch();
 
 widget.$el.appendTo('#example-1');```
 
 API
 ---
-*Toggle
+Toggle
+=======
 To change the value of the switch programatically, use the toggle method.
 
-<button class='btn'>Toggle</button>
+```<button class='btn'>Toggle</button>
 $('.btn').click(function() {
     widget.toggle()
-});
+});```
 
-*Get Value
+Get Value
+==========
 You can of course get the current value of the switch by accessing the value attribute of the switch model ( true | false ).
 
 ```$('.btn').click(function() {
@@ -42,7 +45,8 @@ You can of course get the current value of the switch by accessing the value att
     alert(value);
 });```
 
-* Detect Change
+Detect Change
+===============
 
 If you need to subscribe to 'change' events for the switch, add an event listener to the widget model.
 
