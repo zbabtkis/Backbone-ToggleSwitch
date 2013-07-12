@@ -1,5 +1,5 @@
 {
-  "name": "Backbone ToggleSwitch",
+  "name": "backbone.toggleSwitch",
   "version": "1.0.0",
   "main": "backbone.toggleswitch.js",
   "ignore": [
