@@ -20,14 +20,16 @@ Requirements
 Basic Use
 --------
 
-```var widget = new ToggleSwitch();
+```javascript
+var widget = new ToggleSwitch();
 
-widget.$el.appendTo('#example-1');```
+widget.$el.appendTo('#example-1');
+```
 
 API
 ---
-Toggle
-=======
+**Toggle**
+
 To change the value of the switch programatically, use the toggle method.
 
 ```html
@@ -40,8 +42,8 @@ $('.btn').click(function() {
 });
 ```
 
-Get Value
-==========
+**Get Value**
+
 You can of course get the current value of the switch by accessing the value attribute of the switch model ( true | false ).
 
 ```javascript
@@ -52,8 +54,7 @@ $('.btn').click(function() {
 });
 ```
 
-Detect Change
-===============
+**Detect Change**
 
 If you need to subscribe to 'change' events for the switch, add an event listener to the widget model.
 
