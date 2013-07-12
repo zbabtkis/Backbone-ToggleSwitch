@@ -17,6 +17,10 @@ Requirements
 * Underscore.js
 * jQuery
 
+You can also install with bower!
+
+```bower install --save backbone-toggleswitch```
+
 Basic Use
 --------
 
