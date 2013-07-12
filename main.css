@@ -1,0 +1,45 @@
+.toggle-switch {
+    background: #2c3e50;
+    width: 75px;
+    height: 30px;
+    border-radius: 25px;
+    border: 1px solid #222;
+    color: #fff;
+    position: relative;
+    text-align: right;
+    cursor: pointer;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: moz-none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.toggle-switch.active {
+    background: #2ecc71;
+}
+
+.toggle-switch:before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+    background: #fff;
+    position:relative;
+    float: left;
+}
+
+.toggle-switch.active:before {
+    float: right;
+}
+
+.toggle-switch .value {
+    float: right;
+    margin: 5px 10px;
+}
+
+.toggle-switch.active .value {
+    float: left;
+}

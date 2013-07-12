@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+<head>
+    <link rel='stylesheet' type='text/css' href='./components/bootstrap/css/bootstrap.min.css' />
+    <link rel='stylesheet' type='text/css' href='./components/bootstrap/css/bootstrap-responsive.min.css' />
+    <link rel='stylesheet' type='text/css' href='./main.css' />
+
+    <script src='./components/jquery/jquery.min.js'></script>
+    <script src='./components/underscore/underscore-min.js'></script>
+    <script src='./components/backbone/backbone-min.js'></script>
+    <script src='./components/google-code-prettify/src/prettify.js'></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <script src='./components/bootstrap/js/bootstrap.min.js'></script>
+        
+    <script src='./backbone.toggleswitch.js'></script>
+    
+    <style>
+        #site-nav .navbar-inner {
+            background: #002451;
+        }
+        #site-nav .navbar-inner a {
+            color: #fff;
+            text-shadow: none;
+        }
+        #site-nav .navbar-inner .active a {
+            background: #2ecc71
+        }
+        #promo {
+            text-align: center;
+        }
+        #download {
+            margin: 30px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        .hero-unit {
+            background: #002451;
+            color: #fff;
+            margin-top: 30px
+        }
+        h1 {
+            background: #fff;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            margin-top: 50px
+        }
+        h1:after {
+            content: "";
+            height: 2px;
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: .5em;
+            z-index: -1;
+            border-top: 1px solid #504331;
+            border-bottom: 1px solid #504331;
+        }
+    </style>
+    <link rel='stylesheet' type='text/css' href='http://jmblog.github.com/color-themes-for-google-code-prettify/css/themes/tomorrow-night-blue.css' />
+    
+    <script>
+        $(render);
+            
+        function render() {   
+            var example1 = new ToggleSwitch(),
+                example2 = new ToggleSwitch(),
+                example3 = new ToggleSwitch(),
+                example4 = new ToggleSwitch();
+            
+            $('#example-1').append(example1.render().$el);
+            $('#toggle').append(example2.render().$el);
+            $('#value').append(example3.render().$el);
+            $('#change').append(example4.render().$el);
+            
+            $('#toggle .btn.toggle').click(function() {
+                example2.toggle()
+            });
+            
+            $('#value .btn.value').click(function() {
+                var value = example3.model.get('value');
+                
+                alert(value);
+            });
+            
+            example4.model.on('change', function() { 
+                alert("changed to: " + this.get('value')); 
+            });
+        }
+    </script>
+</head>
+<body data-spy='scroll' data-target='.navbar'>
+    <div id='site-nav'>
+        <div class="navbar navbar-fixed-top">
+            <div class='navbar-inner'>
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class='brand' href='#'>Backbone ToggleSwitch</a>
+                <div class='nav-collapse collapse'>
+                    <ul class='nav'>
+                        <li><a href='#intro'>Intro</a></li>
+                        <li><a href='#installation'>Installation</a></li>
+                        <li><a href='#example-1'>Basic Use</a></li>
+                        <li><a href='#example-2'>API</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+        <div id='promo'>
+            <h1>Backbone ToggleSwitch</h1>
+            <img src='img/logo.png' />
+            <div id='download'>
+                <a href='github.com/zigzackattack/Backbone-ToggleSwitch/Backbone-ToggleSwitch.git' class='btn btn-info btn-large clearfix'><i class='icon-download icon-white'></i> Download</a>
+            </div>
+        </div>
+        <section id='intro' class='hero-unit'>
+            <h2 class='lead'>Backbone ToggleSwitch is the simple MVC widget you've been looking for...</h2>
+            <p>You just need a toggle widget right? Sure, it wouldn't take too teribly long to implement this your self, but with Backbone ToggleWidget you can save your valuable time and in seconds have a beautiful Backbone based View and Model to support your sweet new web app!</p>
+        </section>
+        <section id='installation' class='well'>
+            <h2>Installation</h2>
+            <p>To get ToggleSwitch up and running, make sure you have the requrements installed and attached to your document.</p>
+            <p>Include backbone.toggleswitch.css at the top of your document and backbone.toggleswitch.js below the dependencies.</p>
+            <h3>Requirements</h3>
+            <ul>
+                <li>Backbone.js</li>
+                <li>Underscore.js</li>
+                <li>jQuery</li>
+            </ul>
+        </section>
+        <section id='example-1' class='example well'>
+            <h2>Basic Use</h2>
+<pre class='prettyprint'>var widget = new ToggleSwitch();
+
+widget.$el.appendTo('#example-1');</pre>
+        </section>
+        <section id='example-2' class='example well'>
+            <h2>API</h2>
+            <section id='toggle'>
+                <h3>Toggle</h3>
+                <p>To change the value of the switch programatically, use the toggle method.</p>
+<pre class='prettyprint'>
+&lt;button class='btn'&gt;Toggle&lt;/button&gt;
+</pre>
+<pre class='prettyprint'>
+$('.btn').click(function() {
+    widget.toggle()
+});</pre>
+                <button class='btn toggle pull-right'>Toggle</button>
+            </section>
+            <section id='value'>
+                <h3>Get Value</h3>  
+                <p>You can of course get the current value of the switch by accessing the value attribute of the switch model ( true | false ).</p>
+<pre class='prettyprint'>$('.btn').click(function() {
+    var value = widget.model.get('value');
+                        
+    alert(value);
+});</pre>
+                <button class='btn value pull-right'>Get Value</button>
+            </section>
+            
+            <section id='change'>
+                <h3>Detect Change</h3>  
+                <p>If you need to subscribe to 'change' events for the switch, add an event listener to the widget model.</p>
+<pre class='prettyprint'>widget.model.on('change', function() { 
+    alert("changed to: " + this.get('value')); 
+});</pre>
+            </section>
+        </section>
+    </div>
+</body>
+</html>
