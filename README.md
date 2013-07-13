@@ -26,6 +26,21 @@ var widget = new ToggleSwitch();
 widget.$el.appendTo('#example-1');
 ```
 
+**Theme**
+```javascript
+var widget = new ToggleSwitch({theme: 'theme-yellow'});
+```
+Options:
+* theme-red
+* theme-green
+* theme-blue
+* theme-yellow
+
+**Animation**
+```javascript
+var widget = new ToggleSwitch({animated: true});
+```
+
 API
 ---
 **Toggle**
@@ -65,6 +80,7 @@ widget.model.on('change', function() {
 ```
 
 **Global Configuration**
+
 You can set global configuration options such as theme to using ToggleSwitch.config. Each of these options can be set individually as seen up above with the theme and animations.
 
 ```javascript
