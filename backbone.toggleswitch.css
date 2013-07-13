@@ -14,6 +14,11 @@
     user-select: none;
 }
 
+.toggle-switch.disabled {
+    background: gray !important;
+    cursor: default;
+}
+
 .toggle-switch:before {
     content: "";
     width: 30px;

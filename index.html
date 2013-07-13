@@ -77,7 +77,8 @@
                 animated = new ToggleSwitch({animated: true}),
                 toggle   = new ToggleSwitch(),
                 value    = new ToggleSwitch(),
-                change   = new ToggleSwitch();
+                change   = new ToggleSwitch(),
+                enable   = new ToggleSwitch({defaults: {enable: false}});
             
             $('#basic-use').append(basicUse.render().$el);
             $('#options').append(theme.render().$el);
@@ -85,6 +86,7 @@
             $('#toggle').append(toggle.render().$el);
             $('#value').append(value.render().$el);
             $('#change').append(change.render().$el);
+            $('#enable').append(enable.render().$el);
             
             $('#toggle .btn.toggle').click(function() {
                 toggle.toggle()
@@ -124,15 +126,15 @@
     <div class='container'>
         <div id='promo'>
             <h1>Backbone ToggleSwitch</h1>
-            <img src='img/logo.png' />
+            <img src='http://zacharybabtkis.com/blog/wp-content/uploads/2013/07/logo.png' />
             <div id='download'>
                 <a href='https://github.com/zigzackattack/Backbone-ToggleSwitch' class='btn btn-info btn-large clearfix'><i class='icon-github icon-white'></i> Github</a>
-                <a href='https://github.com/zigzackattack/Backbone-ToggleSwitch/archive/1.1.1.zip' class='btn btn-primary btn-large clearfix'><i class='icon-download icon-white'></i> Download</a>
+                <a href='https://github.com/zigzackattack/Backbone-ToggleSwitch/archive/1.2.0.zip' class='btn btn-primary btn-large clearfix'><i class='icon-download icon-white'></i> Download</a>
             </div>
         </div>
         <section id='intro' class='hero-unit'>
             <h2 class='lead'>Backbone ToggleSwitch is the simple MVC widget you've been looking for...</h2>
-            <p>You just need a toggle widget right? Sure, it wouldn't take too teribly long to implement this bad boy your self, but with ToggleWidget you can save your valuable time and inject a beautiful Backbone widget into your web app in seconds!</p>
+            <p>You just need a toggle widget right? Sure, it wouldn't take too teribly long to implement this bad boy your self, but with ToggleWidget you can save your valuable time and inject a beautiful Backbone switch into your web app in seconds!</p>
         </section>
         <section id='installation' class='well'>
             <h2>Installation</h2>
@@ -169,6 +171,50 @@ widget.$el.appendTo('#example-1');</pre>
             <section id='animated'>
                 <h3>Animation</h3>
 <pre class='prettyprint'>var widget = new ToggleSwitch({animated: true});
+</pre>
+            </section>
+
+            <section id='model'>
+                <h3>Specify a Model</h3>
+<pre class='prettyprint'>var MyModel, widget;
+MyModel = Backbone.Model.extend({
+    defaults: {
+        value: false
+    },
+    mySpecialFunction() {
+        alert("I'm better than the built in model!");
+    }
+});
+
+widget = new ToggleSwitch({model: new MyModel()});
+</pre>
+            </section>
+
+            <section id='attributes'>
+                <h3>Extend the Built-In Model</h3>
+                <p>To extend the built in model, attach attributes to the first argument object.</p>
+<pre class='prettyprint'>var widget = new ToggleSwitch({
+    attributes: { 
+        url: '/mydata.json',
+        parse: function(response) {
+            response.value = response.data.value;
+
+            return response;
+        }
+    }
+});
+</pre>
+            </section>
+
+            <section id='attributes'>
+                <h3>Set Model Defaults</h3>
+                <p>You can set the defaults for the switch model (value and enable).</p>
+<pre class='prettyprint'>var widget = new ToggleSwitch({
+    defaults: { 
+        value: false,
+        enable: false
+    }
+});
 </pre>
             </section>
         </section>
@@ -213,6 +259,12 @@ $('.btn').click(function() {
     offValue: 'Off'       // Text for off value. Defaults to off.
 });</pre>
                 <p><span class='label label-info'>Fun fact</span> whenever you call the configure method, all switches will update automagically!</p>
+            </section>
+
+            <section id='enable'>
+                <h3>Enable/Disable</h3>  
+                <p>To disable or enable the switch, use the enable method, passing in either true or false. You can also use the disable method to disable a switch.</p>
+<pre class='prettyprint'>widget.enable(false);</pre>
             </section>
         </section>
     </div>
