@@ -19,6 +19,7 @@ var ToggleSwitch = (function() {
             this.model = new Model(this.defaults);
             this.listenTo(this.model, 'change:value', this.render);
             
+            // Add to element registry.
             ToggleSwitch._elements.push(this);
             
             this.options = options;
@@ -27,12 +28,14 @@ var ToggleSwitch = (function() {
         },
         render: function() {
             var isOn     = this.model.get('value') ? 'active' : '',
-                theme    = (this.options && this.options.theme) ? this.options.theme : ToggleSwitch.configure().theme,
-                animated = ((this.options && this.options.animated) || ToggleSwitch.configure().animated) ? 'animate' : '';
+                defaults = ToggleSwitch.configure(),
+                theme    = (this.options && this.options.theme) ? this.options.theme : defaults.theme,
+                animated = ((this.options && this.options.animated) || defaults.animated) ? 'animate' : '';
             
+            // Build element html and styles.
             this.$el.removeClass()
                 .addClass([theme, animated, isOn, this.className].join(' '))
-                .html(isOn ? '<span class="value">On</span>' : '<span class="value">Off</span>');
+                .html(isOn ? '<span class="value">' + defaults.onValue + '</span>' : '<span class="value">' + defaults.offValue + '</span>');
                 
             return this;
         },
@@ -46,13 +49,18 @@ var ToggleSwitch = (function() {
     return View;
 }());
 
+// Holds elements for rerendering on configure.
 ToggleSwitch._elements = [];
 
+// Default options.
 ToggleSwitch._options = {
     theme: 'theme-green',
-    animated: false
+    animated: false,
+    onValue: 'On',
+    offValue: 'Off'
 }
 
+// Allows for configuring widget options globally and getting current options.
 ToggleSwitch.configure = function(configs) {
     if(configs) {
         _.each(configs, function(val, key) {

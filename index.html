@@ -10,7 +10,6 @@
     <script src='./components/jquery/jquery.min.js'></script>
     <script src='./components/underscore/underscore-min.js'></script>
     <script src='./components/backbone/backbone-min.js'></script>
-    <script src='./components/google-code-prettify/src/prettify.js'></script>
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
     <script src='./components/bootstrap/docs/assets/js/bootstrap.js'></script>
         
@@ -128,7 +127,7 @@
             <img src='img/logo.png' />
             <div id='download'>
                 <a href='https://github.com/zigzackattack/Backbone-ToggleSwitch' class='btn btn-info btn-large clearfix'><i class='icon-github icon-white'></i> Github</a>
-                <a href='https://github.com/zigzackattack/Backbone-ToggleSwitch/archive/1.1.0.zip' class='btn btn-primary btn-large clearfix'><i class='icon-download icon-white'></i> Download</a>
+                <a href='https://github.com/zigzackattack/Backbone-ToggleSwitch/archive/1.1.1.zip' class='btn btn-primary btn-large clearfix'><i class='icon-download icon-white'></i> Download</a>
             </div>
         </div>
         <section id='intro' class='hero-unit'>
@@ -206,10 +205,12 @@ $('.btn').click(function() {
             
             <section id='configure'>
                 <h3>Global Configuration</h3>  
-                <p>You can attach global configuration options such as theme to ToggleSwitch.config.</p>
+                <p>You can set global configuration options such as theme to using ToggleSwitch.config. Each of these options can be set individually as seen <a href='#options'>up above</a> with the theme and animations.</p>
 <pre class='prettyprint'>ToggleSwitch.configure({
-    theme: 'theme-green', // Defaults to theme-green.
-    animated: false       // Defaults to false.
+    theme: 'theme-green', // Theme name. Defaults to theme-green.
+    animated: false,      // Uses CSS3 animations on toggle. Defaults to false.
+    onValue: 'On',        // Text for on value. Defaults to on.
+    offValue: 'Off'       // Text for off value. Defaults to off.
 });</pre>
                 <p><span class='label label-info'>Fun fact</span> whenever you call the configure method, all switches will update automagically!</p>
             </section>
