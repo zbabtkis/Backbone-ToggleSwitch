@@ -1,9 +1,7 @@
 Backbone-ToggleSwitch
 =====================
 
-![logo](http://zacharybabtkis.com/blog/wp-content/uploads/2013/07/togglewidget.jpg "Backbone ToggleSwitch Logo")
-
-Backbone ToggleSwitch is the simple MVC widget you've been looking for...
+![logo](http://zacharybabtkis.com/blog/wp-content/uploads/2013/07/togglewidget.jpg "Backbone ToggleSwitch Logo") Backbone ToggleSwitch is the simple MVC widget you've been looking for...
 
 You just need a toggle widget right? Sure, it wouldn't take too teribly long to implement this bad boy your self, but with ToggleWidget you can save your valuable time and inject a beautiful Backbone switch into your web app in seconds!
 
