@@ -26,6 +26,71 @@ var widget = new ToggleSwitch();
 widget.$el.appendTo('#example-1');
 ```
 
+**Theme**
+
+```javascript
+var widget = new ToggleSwitch({theme: 'theme-yellow'});
+```
+Options:
+* theme-red
+* theme-green
+* theme-blue
+* theme-yellow
+
+**Animation**
+
+```javascript
+var widget = new ToggleSwitch({animated: true});
+```
+
+**Specify a Model**
+
+```javascript
+var MyModel, widget;
+MyModel = Backbone.Model.extend({
+    defaults: {
+        value: false
+    },
+    mySpecialFunction() {
+        alert("I'm better than the built in model!");
+    }
+});
+```
+
+```javascript
+widget = new ToggleSwitch({model: new MyModel()});
+```
+
+**Extend the Built-In Model**
+
+To extend the built in model, attach attributes to the first argument object.
+
+```javascript
+var widget = new ToggleSwitch({
+    attributes: { 
+        url: '/mydata.json',
+        parse: function(response) {
+            response.value = response.data.value;
+
+            return response;
+        }
+    }
+});
+```
+
+**Set Model Defaults**
+
+You can set the defaults for the switch model (value and enable).
+
+```javascript
+var widget = new ToggleSwitch({
+    defaults: { 
+        value: false,
+        enable: false
+    }
+});
+```
+
 API
 ---
 **Toggle**
@@ -62,6 +127,29 @@ If you need to subscribe to 'change' events for the switch, add an event listene
 widget.model.on('change', function() { 
     alert("changed to: " + this.get('value')); 
 });
+
+```
+
+**Global Configuration**
+
+You can set global configuration options such as theme to using ToggleSwitch.config. Each of these options can be set individually as seen up above with the theme and animations.
+
+```javascript
+ToggleSwitch.configure({
+    theme: 'theme-green', // Theme name. Defaults to theme-green.
+    animated: false,      // Uses CSS3 animations on toggle. Defaults to false.
+    onValue: 'On',        // Text for on value. Defaults to on.
+    offValue: 'Off'       // Text for off value. Defaults to off.
+});
+```
+*Fun fact* whenever you call the configure method, all switches will update automagically!
+
+**Enable/Disable**
+
+To disable or enable the switch, use the enable method, passing in either true or false. You can also use the disable method to disable a switch.
+
+```javascript
+widget.enable(false);
 ```
 
 For full documentation visit http://zacharybabtkis.com/demos/toggleSwitch/.
