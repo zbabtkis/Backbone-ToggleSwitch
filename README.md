@@ -3,7 +3,7 @@ Backbone-ToggleSwitch
 
 Backbone ToggleSwitch is the simple MVC widget you've been looking for...
 
-You just need a toggle widget right? Sure, it wouldn't take too teribly long to implement this bad boy your self, but with ToggleWidget you can save your valuable time and inject a beautiful Backbone widget into your web app in seconds!
+You just need a toggle widget right? Sure, it wouldn't take too teribly long to implement this bad boy your self, but with ToggleWidget you can save your valuable time and inject a beautiful Backbone switch into your web app in seconds!
 
 Installation
 -----------
