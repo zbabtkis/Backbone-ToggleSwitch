@@ -1,17 +1,18 @@
+
 <!DOCTYPE html>
 
 <html lang='en'>
 <head>
-    <link rel='stylesheet' type='text/css' href='./components/bootstrap/css/bootstrap.min.css' />
-    <link rel='stylesheet' type='text/css' href='./components/bootstrap/css/bootstrap-responsive.min.css' />
-    <link rel='stylesheet' type='text/css' href='./main.css' />
+    <link rel='stylesheet' type='text/css' href='./components/bootstrap/docs/assets/css/bootstrap.css' />
+    <link rel='stylesheet' type='text/css' href='./components/bootstrap/docs/assets/css/bootstrap-responsive.css' />
+    <link rel='stylesheet' type='text/css' href='./backbone.toggleswitch.css' />
 
     <script src='./components/jquery/jquery.min.js'></script>
     <script src='./components/underscore/underscore-min.js'></script>
     <script src='./components/backbone/backbone-min.js'></script>
     <script src='./components/google-code-prettify/src/prettify.js'></script>
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-    <script src='./components/bootstrap/js/bootstrap.min.js'></script>
+    <script src='./components/bootstrap/docs/assets/js/bootstrap.js'></script>
         
     <script src='./backbone.toggleswitch.js'></script>
     
@@ -55,38 +56,46 @@
             left: 0;
             right: 0;
             top: .5em;
+            margin-top: 50px;
             z-index: -1;
             border-top: 1px solid #504331;
             border-bottom: 1px solid #504331;
         }
     </style>
     <link rel='stylesheet' type='text/css' href='http://jmblog.github.com/color-themes-for-google-code-prettify/css/themes/tomorrow-night-blue.css' />
+	<link rel='stylesheet' type='text/css' href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css' />
     
     <script>
         $(render);
-            
+        
+        ToggleSwitch.configure({
+            theme: 'theme-green',
+            animated: false
+        });
         function render() {   
-            var example1 = new ToggleSwitch(),
-                example2 = new ToggleSwitch(),
-                example3 = new ToggleSwitch(),
-                example4 = new ToggleSwitch();
+            var basicUse = new ToggleSwitch(),
+                theme    = new ToggleSwitch({theme: 'theme-yellow'}),
+                animated = new ToggleSwitch({animated: true}),
+                toggle   = new ToggleSwitch(),
+                value    = new ToggleSwitch(),
+                change   = new ToggleSwitch();
             
-            $('#example-1').append(example1.render().$el);
-            $('#toggle').append(example2.render().$el);
-            $('#value').append(example3.render().$el);
-            $('#change').append(example4.render().$el);
+            $('#basic-use').append(basicUse.render().$el);
+            $('#options').append(theme.render().$el);
+            $('#animated').append(animated.render().$el);
+            $('#toggle').append(toggle.render().$el);
+            $('#value').append(value.render().$el);
+            $('#change').append(change.render().$el);
             
             $('#toggle .btn.toggle').click(function() {
-                example2.toggle()
+                toggle.toggle()
             });
             
-            $('#value .btn.value').click(function() {
-                var value = example3.model.get('value');
-                
-                alert(value);
+            $('#value .btn.value').click(function() {        
+                alert(value.model.get('value'));
             });
             
-            example4.model.on('change', function() { 
+            change.model.on('change', function() { 
                 alert("changed to: " + this.get('value')); 
             });
         }
@@ -118,12 +127,13 @@
             <h1>Backbone ToggleSwitch</h1>
             <img src='img/logo.png' />
             <div id='download'>
-                <a href='github.com/zigzackattack/Backbone-ToggleSwitch/Backbone-ToggleSwitch.git' class='btn btn-info btn-large clearfix'><i class='icon-download icon-white'></i> Download</a>
+                <a href='https://github.com/zigzackattack/Backbone-ToggleSwitch' class='btn btn-info btn-large clearfix'><i class='icon-github icon-white'></i> Github</a>
+                <a href='https://github.com/zigzackattack/Backbone-ToggleSwitch/archive/1.0.0.zip' class='btn btn-primary btn-large clearfix'><i class='icon-download icon-white'></i> Download</a>
             </div>
         </div>
         <section id='intro' class='hero-unit'>
             <h2 class='lead'>Backbone ToggleSwitch is the simple MVC widget you've been looking for...</h2>
-            <p>You just need a toggle widget right? Sure, it wouldn't take too teribly long to implement this your self, but with Backbone ToggleWidget you can save your valuable time and in seconds have a beautiful Backbone based View and Model to support your sweet new web app!</p>
+            <p>You just need a toggle widget right? Sure, it wouldn't take too teribly long to implement this bad boy your self, but with ToggleWidget you can save your valuable time and inject a beautiful Backbone widget into your web app in seconds!</p>
         </section>
         <section id='installation' class='well'>
             <h2>Installation</h2>
@@ -135,12 +145,33 @@
                 <li>Underscore.js</li>
                 <li>jQuery</li>
             </ul>
+	    <p>You can also install using bower!</p>
+	    <pre class='prettyprint'>bower install --save backbone-toggleswitch</pre>
         </section>
         <section id='example-1' class='example well'>
-            <h2>Basic Use</h2>
+            <section id='basic-use'>
+                <h2>Basic Use</h2>
 <pre class='prettyprint'>var widget = new ToggleSwitch();
 
 widget.$el.appendTo('#example-1');</pre>
+            </section>
+            <section id='options'>
+                <h3>Theme</h3>
+<pre class='prettyprint'>var widget = new ToggleSwitch({theme: 'theme-yellow'});
+</pre>
+                <strong>Options:</strong>
+                <ul>
+                    <li>theme-red</li>
+                    <li>theme-green</li>
+                    <li>theme-blue</li>
+                    <li>theme-yellow</li>
+                </ul>
+            </section>
+            <section id='animated'>
+                <h3>Animation</h3>
+<pre class='prettyprint'>var widget = new ToggleSwitch({animated: true});
+</pre>
+            </section>
         </section>
         <section id='example-2' class='example well'>
             <h2>API</h2>
@@ -154,17 +185,15 @@ widget.$el.appendTo('#example-1');</pre>
 $('.btn').click(function() {
     widget.toggle()
 });</pre>
-                <button class='btn toggle pull-right'>Toggle</button>
+                <button class='btn btn-warning toggle pull-right'>Toggle</button>
             </section>
             <section id='value'>
                 <h3>Get Value</h3>  
                 <p>You can of course get the current value of the switch by accessing the value attribute of the switch model ( true | false ).</p>
-<pre class='prettyprint'>$('.btn').click(function() {
-    var value = widget.model.get('value');
-                        
-    alert(value);
+<pre class='prettyprint'>$('.btn').click(function() {                        
+    alert(widget.model.get('value'));
 });</pre>
-                <button class='btn value pull-right'>Get Value</button>
+                <button class='btn btn-warning value pull-right'>Get Value</button>
             </section>
             
             <section id='change'>
@@ -173,6 +202,16 @@ $('.btn').click(function() {
 <pre class='prettyprint'>widget.model.on('change', function() { 
     alert("changed to: " + this.get('value')); 
 });</pre>
+            </section>
+            
+            <section id='configure'>
+                <h3>Global Configuration</h3>  
+                <p>You can attach global configuration options such as theme to ToggleSwitch.config.</p>
+<pre class='prettyprint'>ToggleSwitch.configure({
+    theme: 'theme-green', // Defaults to theme-green.
+    animated: false       // Defaults to false.
+});</pre>
+                <p><span class='label label-info'>Fun fact</span> whenever you call the configure method, all switches will update automagically!</p>
             </section>
         </section>
     </div>
