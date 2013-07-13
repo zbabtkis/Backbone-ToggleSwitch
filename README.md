@@ -64,4 +64,17 @@ widget.model.on('change', function() {
 });
 ```
 
+**Global Configuration**
+You can set global configuration options such as theme to using ToggleSwitch.config. Each of these options can be set individually as seen up above with the theme and animations.
+
+```javascript
+ToggleSwitch.configure({
+    theme: 'theme-green', // Theme name. Defaults to theme-green.
+    animated: false,      // Uses CSS3 animations on toggle. Defaults to false.
+    onValue: 'On',        // Text for on value. Defaults to on.
+    offValue: 'Off'       // Text for off value. Defaults to off.
+});
+```
+*Fun fact* whenever you call the configure method, all switches will update automagically!
+
 For full documentation visit http://zacharybabtkis.com/demos/toggleSwitch/.
