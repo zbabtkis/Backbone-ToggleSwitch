@@ -92,6 +92,18 @@ var widget = new ToggleSwitch({
 });
 ```
 
+**Accessibility**
+
+Backbone ToggleSwitch strives to be fully accessible. You can add labels to toggle switches which will be used by screen readers to help identify the purpose of a toggle switch.
+
+```javascript
+var widget = new ToggleSwitch({
+    defaults: { 
+        label: "make lunch"
+    }
+});
+```
+
 API
 ---
 **Toggle**
