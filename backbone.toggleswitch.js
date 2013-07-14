@@ -44,7 +44,12 @@ var ToggleSwitch = (function() {
             // Build element html and styles.
             this.$el.removeClass()
                 .addClass([theme, animated, isOn, enabled, this.className].join(' '))
-                .html(isOn ? '<span class="value">' + defaults.onValue + '</span>' : '<span class="value">' + defaults.offValue + '</span>');
+                .html(isOn ? '<span class="value">' + defaults.onValue + '</span>' : '<span class="value">' + defaults.offValue + '</span>')
+                .attr({
+                    'aria-checked': isOn,
+                    'role': 'checkbox',
+                    'tabindex': '0'
+                });
                 
             this.model.get('enable') ? this.delegateEvents() : this.undelegateEvents();
 
