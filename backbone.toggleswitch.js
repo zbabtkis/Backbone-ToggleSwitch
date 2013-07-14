@@ -47,6 +47,7 @@ var ToggleSwitch = (function() {
                 .html(isOn ? '<span class="value">' + defaults.onValue + '</span>' : '<span class="value">' + defaults.offValue + '</span>')
                 .attr({
                     'aria-checked': isOn,
+                    'aria-readonly': enabled,
                     'role': 'checkbox',
                     'tabindex': '0'
                 });
