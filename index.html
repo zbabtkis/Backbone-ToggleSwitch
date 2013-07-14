@@ -72,13 +72,13 @@
             animated: false
         });
         function render() {   
-            var basicUse = new ToggleSwitch(),
-                theme    = new ToggleSwitch({theme: 'theme-yellow'}),
-                animated = new ToggleSwitch({animated: true}),
-                toggle   = new ToggleSwitch(),
-                value    = new ToggleSwitch(),
-                change   = new ToggleSwitch(),
-                enable   = new ToggleSwitch({defaults: {enable: false}});
+            var basicUse = new ToggleSwitch({defaults: {label: 'basic use'}}),
+                theme    = new ToggleSwitch({theme: 'theme-yellow', defaults: {label: 'theme'}}),
+                animated = new ToggleSwitch({animated: true, defaults: {label: 'animated'}}),
+                toggle   = new ToggleSwitch({defaults: {label: 'toggle'}}),
+                value    = new ToggleSwitch({defaults: {label: 'get value'}}),
+                change   = new ToggleSwitch({defaults: {label: 'change event'}}),
+                enable   = new ToggleSwitch({defaults: {enable: false, label: 'enable'}});
             
             $('#basic-use').append(basicUse.render().$el);
             $('#options').append(theme.render().$el);
@@ -213,6 +213,17 @@ widget = new ToggleSwitch({model: new MyModel()});
     defaults: { 
         value: false,
         enable: false
+    }
+});
+</pre>
+            </section>
+
+            <section id='accessibility'>
+                <h3>Accessibility</h3>
+                <p>Backbone ToggleSwitch strives to be fully accessible. You can add labels to toggle switches which will be used by screen readers to help identify the purpose of a toggle switch.</p>
+<pre class='prettyprint'>var widget = new ToggleSwitch({
+    defaults: { 
+        label: "make lunch"
     }
 });
 </pre>

@@ -46,7 +46,8 @@ var ToggleSwitch = (function() {
                 .addClass([theme, animated, isOn, enabled, this.className].join(' '))
                 .html(isOn ? '<span class="value">' + defaults.onValue + '</span>' : '<span class="value">' + defaults.offValue + '</span>')
                 .attr({
-                    'aria-checked': isOn,
+                    'aria-checked': this.model.get('value'),
+                    'aria-label': this.model.get('label'),
                     'aria-readonly': enabled,
                     'role': 'checkbox',
                     'tabindex': '0'
