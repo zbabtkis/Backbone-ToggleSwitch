@@ -165,4 +165,4 @@ To disable or enable the switch, use the enable method, passing in either true o
 widget.enable(false);
 ```
 
-For full documentation visit http://zacharybabtkis.com/demos/toggleSwitch/.
+For full documentation visit http://zacharybabtkis.com/demos/backbone-toggleswitch.
