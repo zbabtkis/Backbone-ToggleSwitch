@@ -1,7 +1,9 @@
 {
   "name": "backbone.toggleSwitch",
-  "version": "1.2.0",
+  "version": "1.2.3",
   "main": "backbone.toggleswitch.js",
+  "description": "A simple Toggle Switch UI widget for backbone",
+  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
